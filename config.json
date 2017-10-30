@@ -1,0 +1,78 @@
+{
+  "name": "Event Branching To Field",
+
+  "namespace":"Stanford\\EventToField",
+
+  "description": "Write the current event id, event name, or arm name to fields in the corresponding events.  You can then use those events in branching logic or piping.",
+
+  "versions": [
+    { "0.1": "Initial Development Version" }
+  ],
+
+  "authors": [
+    {
+      "name": "Andy Martin",
+      "email": "andy123@stanford.edu",
+      "institution": "Stanford University"
+    }
+  ],
+
+  "permissions": [
+    "hook_save_record"
+  ],
+
+  "links": {
+    "control-center": [
+    ],
+    "project": [
+    ]
+  },
+
+  "system-settings": [
+  ],
+
+  "project-settings-header": "The first two fields limit how often this module will check and update the destination fields with the appropriate event/arm data.<br>At least one of the last four 'target' fields should be set to existing text fields in your project.  Ideally, the fields you select should be defined in a form that is enabled in all events where you want to do event-based branching or piping.  You may want to add an @HIDDEN action tag to these fields so they are not directly visible during data entry but are only present for calculations.",
+
+  "project-settings": [
+    {
+      "key": "triggering_form",
+      "name": "<b>Triggering Form</b><br>Saving this form will trigger the setting of the event fields (if empty).  Leave blank to check on all save events.",
+      "required": false,
+      "type": "form-list"
+    },
+    {
+      "key": "triggering_event_id",
+      "name": "<b>Triggering Event</b><br>If longitudinal, only trigger setting of event fields when saving in this event (typically this would be the first event only).  Leave blank to trigger in all events.",
+      "required": false,
+      "type": "event-list"
+    },
+    {
+      "name": "These are the 'destination' fields that will be overwritten with the correct event and arm information."
+      "type": "header"
+    },
+    {
+      "key": "event_id_field",
+      "name": "<b>Event ID Field</b><br>If specified, the event id will be saved into this field.  Leave blank if not used.",
+      "required": false,
+      "type": "field-list"
+    },
+    {
+      "key": "event_name_field",
+      "name": "<b>Event Name Field</b><br>If specified, the event name (e.g. event_1_arm_1) will be saved into this field.  Leave blank if not used.",
+      "required": false,
+      "type": "field-list"
+    },
+    {
+      "key": "event_description_field",
+      "name": "<b>Event Description Field</b><br>If specified, the event description (e.g. Week 1 Follow-up) will be saved into this field.  Leave blank if not used.",
+      "required": false,
+      "type": "field-list"
+    },
+    {
+      "key": "arm_name_field",
+      "name": "<b>Arm Name Field</b><br>If specified, the arm name (e.g. Group B) will be saved into this field.  Leave blank if not used.",
+      "required": false,
+      "type": "field-list"
+    }
+  ]
+}
